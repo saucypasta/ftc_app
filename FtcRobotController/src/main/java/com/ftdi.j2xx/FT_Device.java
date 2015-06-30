@@ -213,7 +213,7 @@ public class FT_Device
                 double P = 0.5;
                 double I = 0.05;
                 int error = getMotor1TargetEncoder() - getMotor1CurrentEncoder();
-                mMotor1TotalError += error;
+                mMotor1TotalError += error; // integrator to make sure we reach goal exactly(NxtEncoderOP needs this)
                 if (mMotor1TotalError > 2000) mMotor1TotalError = 2000;
                 if (mMotor1TotalError < -2000) mMotor1TotalError = -2000;
 
